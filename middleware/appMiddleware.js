@@ -8,11 +8,7 @@ const xss = require("xss-clean");
 
 const asyncError = require("./errors.middleware");
 
-// const roomTypesRouter = require("./roomType.route");
-// const roomRouter = require("./room.route");
-// const authRouter = require("./auth.routes");
 const indexRoutes = require("../routes/app.routes");
-// const authenticateUser = require("./authentication");
 
 // error handler
 const notFoundMiddleware = require("./not-found");
@@ -27,10 +23,8 @@ module.exports = (app) => {
   app.use(helmet());
   app.use(cors());
   app.use(xss());
+  indexRoutes(app);
   app.use(notFoundMiddleware);
   app.use(errorHandlerMiddleware);
-  indexRoutes(app);
-  // app.use("/api/v1/", authenticateUser, roomRouter, roomTypesRouter);
-
   app.use(asyncError);
 };

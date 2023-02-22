@@ -7,6 +7,20 @@ const authSchema = Joi.object({
   roles: Joi.string().required().lowercase(),
 });
 
+const roomTypeSchema = Joi.object({
+  codeName: Joi.string().required().min(3).max(100),
+});
+
+const roomSchema = Joi.object({
+  name: Joi.string().required(),
+  price: Joi.number().required(),
+  sizes: Joi.string().required(),
+  roomType: Joi.string().required(),
+  createdBy: Joi.string().required(),
+});
+
 module.exports = {
   authSchema,
+  roomTypeSchema,
+  roomSchema,
 };
