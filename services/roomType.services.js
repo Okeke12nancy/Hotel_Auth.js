@@ -6,13 +6,14 @@ class RoomTypeService {
 
     return newRoomType;
   }
-
+  // This is for findOne
   async findOne(filter) {
     const roomType = await RoomType.findOne(filter);
 
     return roomType;
   }
 
+  //This is for findById
   async findById(id) {
     const roomType = await RoomType.findById(id);
 

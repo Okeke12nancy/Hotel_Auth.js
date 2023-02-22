@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+//Used to log your requests and responses
 const logger = require("pino")();
 
 module.exports = function database() {
